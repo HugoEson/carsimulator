@@ -16,7 +16,6 @@ public:
     int getY() const;
 
 protected:
-    int diameter;
     int x, y;
     Direction direction;
 };
