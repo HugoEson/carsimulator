@@ -5,7 +5,7 @@
 
 class MonsterTruck : public Car {
 public:
-    MonsterTruck(int x, int y, Direction direction);
+    MonsterTruck(int x, int y, char direction);
     void moveForward() override;
     void moveBackward() override;
     void turnLeft() override;

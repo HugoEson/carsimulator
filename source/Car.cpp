@@ -1,47 +1,46 @@
 #include "Car.h"
 
-Car::Car(int x, int y, Direction direction) : x(x), y(y), direction(direction) {}
+Car::Car(int x, int y, char direction) : position(std::make_pair(x, y)) {
+    setDirection(direction);
+}
 
 void Car::moveForward() {
-    switch (direction) {
-        case N: y++; break;
-        case S: y--; break;
-        case W: x--; break;
-        case E: x++; break;
-    }
+    position.first += direction.first;
+    position.second += direction.second;
 }
 
 void Car::moveBackward() {
-    switch (direction) {
-        case N: y--; break;
-        case S: y++; break;
-        case W: x++; break;
-        case E: x--; break;
-    }
+    position.first -= direction.first;
+    position.second -= direction.second;
 }
 
 void Car::turnLeft() {
-    switch (direction) {
-        case N: direction = W; break;
-        case S: direction = E; break;
-        case W: direction = S; break;
-        case E: direction = N; break;
-    }
+    int temp = direction.first;
+    direction.first = -direction.second;
+    direction.second = temp;
 }
 
 void Car::turnRight() {
-    switch (direction) {
-        case N: direction = E; break;
-        case S: direction = W; break;
-        case W: direction = N; break;
-        case E: direction = S; break;
-    }
+    int temp = direction.first;
+    direction.first = direction.second;
+    direction.second = -temp;
 }
 
-int Car::getX() const {
-    return x;
+std::pair<int, int> Car::getPosition() const {
+    return position;
 }
 
-int Car::getY() const {
-    return y;
+char Car::getDirection() const {
+    if (direction == std::make_pair(0, 1)) return 'N';
+    if (direction == std::make_pair(1, 0)) return 'E';
+    if (direction == std::make_pair(0, -1)) return 'S';
+    if (direction == std::make_pair(-1, 0)) return 'W';
+    return 'N'; // Default case, should not happen
+}
+
+void Car::setDirection(char direction) {
+    if (direction == 'N') this->direction = {0, 1};
+    else if (direction == 'E') this->direction = {1, 0};
+    else if (direction == 'S') this->direction = {0, -1};
+    else if (direction == 'W') this->direction = {-1, 0};
 }

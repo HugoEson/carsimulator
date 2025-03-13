@@ -1,6 +1,6 @@
 #include "MonsterTruck.h"
 
-MonsterTruck::MonsterTruck(int x, int y, Direction direction) : Car(x, y, direction) {}
+MonsterTruck::MonsterTruck(int x, int y, char direction) : Car(x, y, direction) {}
 
 void MonsterTruck::moveForward() {
     Car::moveForward();

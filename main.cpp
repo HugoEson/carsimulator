@@ -4,14 +4,18 @@
 
 int main()
 {
-    MonsterTruck myTruck(0, 0, Car::N);
+    MonsterTruck myTruck(0, 0, 'N'); // Facing North
 
-    std::cout << "Monster truck at position (" << myTruck.getX() << ", " << myTruck.getY() << ")" << std::endl;
+    auto position = myTruck.getPosition();
+    char direction = myTruck.getDirection();
+    std::cout << "Monster truck at position (" << position.first << ", " << position.second << ") facing " << direction << std::endl;
 
     myTruck.moveForward();
     myTruck.turnLeft();
     myTruck.moveBackward();
     myTruck.turnRight();
     
-    std::cout << "Monster truck at position (" << myTruck.getX() << ", " << myTruck.getY() << ")" << std::endl;
+    position = myTruck.getPosition();
+    direction = myTruck.getDirection();
+    std::cout << "Monster truck at position (" << position.first << ", " << position.second << ") facing " << direction << std::endl;
 }
