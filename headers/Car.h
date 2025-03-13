@@ -15,16 +15,15 @@ public:
     virtual void turnRight();
 
     std::pair<int, int> getPosition() const;
-    char getDirection() const; // Changed to return a letter
-    bool canMove(const Room& room, int dx, int dy) const; // New method to check if the car can move
+    char getDirection() const;
 
 protected:
     std::pair<int, int> position;
     std::pair<int, int> direction;
-    Room* room; // New member variable to store room reference
+    Room& room;
 
 private:
-    void setDirection(char direction); // Helper method to set direction
+    void setDirection(char direction);
 };
 
 #endif // CAR_H
