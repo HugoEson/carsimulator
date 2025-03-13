@@ -6,8 +6,9 @@
 
 class Car {
 public:
-    Car(int x, int y, char direction, Room* room);
+    Car(int x, int y, char direction, Room& room);
     virtual ~Car() = default;
+    virtual bool tryMove(int dx, int dy);
     virtual bool moveForward();
     virtual bool moveBackward();
     virtual void turnLeft();
