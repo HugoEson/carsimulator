@@ -1,17 +1,29 @@
 #include "Car.h"
 
-Car::Car(int x, int y, char direction) : position(std::make_pair(x, y)) {
+Car::Car(int x, int y, char direction, Room* room) : position(std::make_pair(x, y)), room(room) {
     setDirection(direction);
 }
 
-void Car::moveForward() {
-    position.first += direction.first;
-    position.second += direction.second;
+bool Car::moveForward() {
+    int newX = position.first + direction.first;
+    int newY = position.second + direction.second;
+    if (room->isPositionInside(newX, newY)) {
+        position.first = newX;
+        position.second = newY;
+        return true;
+    }
+    return false;
 }
 
-void Car::moveBackward() {
-    position.first -= direction.first;
-    position.second -= direction.second;
+bool Car::moveBackward() {
+    int newX = position.first - direction.first;
+    int newY = position.second - direction.second;
+    if (room->isPositionInside(newX, newY)) {
+        position.first = newX;
+        position.second = newY;
+        return true;
+    }
+    return false;
 }
 
 void Car::turnLeft() {

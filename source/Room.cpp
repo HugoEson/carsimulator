@@ -9,3 +9,7 @@ int Room::getSizeX() const {
 int Room::getSizeY() const {
     return sizeY;
 }
+
+bool Room::isPositionInside(int x, int y) const {
+    return x >= 0 && x < sizeX && y >= 0 && y < sizeY;
+}

@@ -8,6 +8,7 @@ add_executable(CarSimulator
     main.cpp
     source/Car.cpp
     source/MonsterTruck.cpp
+    source/Room.cpp
 )
 
 target_include_directories(CarSimulator PRIVATE headers)
