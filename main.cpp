@@ -72,11 +72,12 @@ int main()
     if (runcommands(myTruck, commands))
     {
         std::cout << "Successful run!" << std::endl;
+        std::cout << "Car ended up at position: (" << myTruck.getPosition().first << ", " << myTruck.getPosition().second << ") facing " << myTruck.getDirection() << std::endl;
     }
     else
     {
         std::cout << "Failed run!" << std::endl;
-        std::cout << "Car ran into wall from position: (" << myTruck.getPosition().first << ", " << myTruck.getPosition().second << ")" << std::endl;
+        std::cout << "Car ran into wall from position: (" << myTruck.getPosition().first << ", " << myTruck.getPosition().second << ") facing " << myTruck.getDirection() << std::endl;
     }
 
     return 0;
