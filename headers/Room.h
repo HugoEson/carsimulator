@@ -1,7 +1,8 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-class Room {
+class Room
+{
 public:
     Room(int sizeX, int sizeY);
     int getSizeX() const;
