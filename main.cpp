@@ -46,16 +46,20 @@ int main()
         return 1;
     }
 
+    Room room(roomSizeX, roomSizeY);
+
     int carPosX, carPosY;
     char carDirection;
     std::cout << "Enter car position (X Y) and direction (N/E/S/W): ";
     std::cin >> carPosX >> carPosY >> carDirection;
-    if (std::cin.fail() || !std::cin.eof() && std::cin.peek() != '\n' || carPosX < 0 || carPosY < 0 ||
+    if (std::cin.fail() || !std::cin.eof() && std::cin.peek() != '\n' || !room.isPositionInside(carPosX, carPosY) ||
         (carDirection != 'N' && carDirection != 'E' && carDirection != 'S' && carDirection != 'W'))
     {
-        std::cerr << "Invalid car position or direction. Ensure position is non-negative and direction is one of N/E/S/W." << std::endl;
+        std::cerr << "Invalid car position or direction. Ensure position is non-negative and within size of room, and direction is one of N/E/S/W." << std::endl;
         return 1;
     }
+
+    MonsterTruck myTruck(carPosX, carPosY, carDirection, room);
 
     std::string commands;
     std::cout << "Enter commands (F/B/L/R): ";
@@ -65,9 +69,6 @@ int main()
         std::cerr << "Invalid commands. Use only F, B, L, R." << std::endl;
         return 1;
     }
-
-    Room room(roomSizeX, roomSizeY);
-    MonsterTruck myTruck(carPosX, carPosY, carDirection, room);
 
     if (runcommands(myTruck, commands))
     {
