@@ -8,7 +8,7 @@ I also assumed that the program should exit if invalid input was entered.
 
 There is also one thing missing from what I would have done in daily work: tests. I skipped this since it did not seem to be an essential part of this task according to the pdf. I would of course have done it otherwise and in regular daily work. If I were to create some tests for this program, I would use the GoogleTest framework since I have used it in previous work.
 
-One last note: I used Git but not branches since this seemed a bit unnecessary. 
+One last note: I used Git but not branches since this seemed a bit unnecessary for this task. 
 
 ## How to run the program
 
